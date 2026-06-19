@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Điều Khoản Sử Dụng – Hệ Thống Quản Lý Mẹ & Bé</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap');
+
+  :root {
+    --primary: #7c3aed;
+    --primary-light: #ede9fe;
+    --primary-dark: #4f46e5;
+    --accent: #f59e0b;
+    --accent-light: #fef3c7;
+    --danger: #ef4444;
+    --danger-light: #fee2e2;
+    --success: #10b981;
+    --success-light: #d1fae5;
+    --warning: #f97316;
+    --warning-light: #ffedd5;
+    --text: #1e1b4b;
+    --text-muted: #6b7280;
+    --border: #e5e7eb;
+    --bg: #f5f3ff;
+    --white: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Be Vietnam Pro', Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  /* ── HEADER ── */
+  .hero {
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #a855f7 100%);
+    padding: 60px 20px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 50px;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    color: #fff;
+    font-size: clamp(28px, 5vw, 46px);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .hero p {
+    color: rgba(255,255,255,0.85);
+    font-size: 16px;
+    max-width: 540px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .hero-icon { font-size: 56px; margin-bottom: 16px; display: block; }
+
+  /* ── LAYOUT ── */
+  .wrapper {
+    max-width: 860px;
+    margin: -40px auto 60px;
+    padding: 0 20px;
+  }
+
+  /* ── CARD ── */
+  .card {
+    background: var(--white);
+    border-radius: 20px;
+    box-shadow: 0 8px 40px rgba(79,70,229,0.10);
+    overflow: hidden;
+    margin-bottom: 24px;
+  }
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 22px 30px;
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(90deg, var(--primary-light), #fff);
+  }
+  .card-icon {
+    width: 44px; height: 44px;
+    background: var(--primary);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; flex-shrink: 0;
+  }
+  .card-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--primary-dark);
+  }
+  .card-number {
+    margin-left: auto;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--primary);
+    background: var(--primary-light);
+    border-radius: 6px;
+    padding: 3px 10px;
+    letter-spacing: 1px;
+  }
+  .card-body { padding: 26px 30px; }
+  .card-body p { color: #4b5563; margin-bottom: 14px; font-size: 15px; }
+  .card-body p:last-child { margin-bottom: 0; }
+
+  /* ── LIST ── */
+  ul.terms-list { list-style: none; padding: 0; }
+  ul.terms-list li {
+    padding: 10px 0 10px 28px;
+    border-bottom: 1px dashed var(--border);
+    color: #4b5563;
+    font-size: 15px;
+    position: relative;
+  }
+  ul.terms-list li:last-child { border-bottom: none; }
+  ul.terms-list li::before {
+    content: '✦';
+    position: absolute; left: 0;
+    color: var(--primary);
+    font-size: 11px;
+    top: 13px;
+  }
+
+  /* ── CỌC & HOÀN CỌC HIGHLIGHT ── */
+  .deposit-hero {
+    background: linear-gradient(135deg, #fef3c7, #fffbeb);
+    border: 2px solid var(--accent);
+    border-radius: 16px;
+    padding: 28px;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  .deposit-hero .big-number {
+    font-size: 56px;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .deposit-hero .label {
+    font-size: 15px;
+    font-weight: 600;
+    color: #92400e;
+    margin-top: 6px;
+  }
+  .deposit-hero .sub {
+    font-size: 13px;
+    color: #a16207;
+    margin-top: 4px;
+  }
+
+  /* ── REFUND TABLE ── */
+  .refund-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 6px;
+  }
+  .refund-card {
+    border-radius: 14px;
+    padding: 20px;
+    text-align: center;
+    border: 2px solid transparent;
+    transition: transform .2s;
+  }
+  .refund-card:hover { transform: translateY(-2px); }
+  .refund-card .time {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .5px;
+    margin-bottom: 8px;
+  }
+  .refund-card .percent {
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 1;
+  }
+  .refund-card .desc {
+    font-size: 12px;
+    margin-top: 6px;
+    font-weight: 500;
+  }
+
+  .rc-100 { background: var(--success-light); border-color: var(--success); }
+  .rc-100 .time { color: #065f46; }
+  .rc-100 .percent { color: var(--success); }
+  .rc-100 .desc { color: #059669; }
+
+  .rc-50 { background: #dbeafe; border-color: #3b82f6; }
+  .rc-50 .time { color: #1e40af; }
+  .rc-50 .percent { color: #2563eb; }
+  .rc-50 .desc { color: #3b82f6; }
+
+  .rc-25 { background: var(--warning-light); border-color: var(--warning); }
+  .rc-25 .time { color: #9a3412; }
+  .rc-25 .percent { color: var(--warning); }
+  .rc-25 .desc { color: #ea580c; }
+
+  .rc-0 { background: var(--danger-light); border-color: var(--danger); }
+  .rc-0 .time { color: #991b1b; }
+  .rc-0 .percent { color: var(--danger); }
+  .rc-0 .desc { color: #dc2626; }
+
+  /* ── NOTICE BOX ── */
+  .notice {
+    display: flex;
+    gap: 14px;
+    padding: 16px 20px;
+    border-radius: 12px;
+    margin-top: 18px;
+    font-size: 14px;
+  }
+  .notice-warn { background: var(--warning-light); border-left: 4px solid var(--warning); color: #92400e; }
+  .notice-info { background: var(--primary-light); border-left: 4px solid var(--primary); color: #3730a3; }
+  .notice-danger { background: var(--danger-light); border-left: 4px solid var(--danger); color: #7f1d1d; }
+  .notice-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+  .notice strong { display: block; margin-bottom: 4px; font-size: 13px; }
+
+  /* ── FOOTER ── */
+  .footer-card {
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    border-radius: 20px;
+    padding: 36px 30px;
+    text-align: center;
+    color: #fff;
+    margin-top: 8px;
+  }
+  .footer-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
+  .footer-card p { font-size: 14px; color: rgba(255,255,255,0.8); margin-bottom: 6px; }
+  .footer-card .date { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 16px; }
+
+  /* ── TOC SIDEBAR ── */
+  .toc {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 22px 24px;
+    box-shadow: 0 4px 20px rgba(79,70,229,0.08);
+    margin-bottom: 24px;
+    border: 1px solid var(--primary-light);
+  }
+  .toc h3 { font-size: 14px; font-weight: 700; color: var(--primary-dark); margin-bottom: 12px; letter-spacing: .5px; text-transform: uppercase; }
+  .toc ol { list-style: none; padding: 0; counter-reset: toc-counter; }
+  .toc ol li { counter-increment: toc-counter; padding: 6px 0; font-size: 14px; color: var(--text-muted); border-bottom: 1px solid #f3f4f6; }
+  .toc ol li:last-child { border-bottom: none; }
+  .toc ol li::before { content: counter(toc-counter) ". "; color: var(--primary); font-weight: 700; }
+
+  @media (max-width: 600px) {
+    .card-body { padding: 20px 18px; }
+    .card-header { padding: 18px 18px; }
+    .refund-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .refund-card .percent { font-size: 28px; }
+    .deposit-hero .big-number { font-size: 42px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <span class="hero-icon">📋</span>
+  <div class="hero-badge">Tài liệu chính thức</div>
+  <h1>Điều Khoản Sử Dụng</h1>
+  <p>Hệ Thống Quản Lý Mẹ & Bé — Vui lòng đọc kỹ trước khi đăng ký dịch vụ</p>
+</div>
+
+<div class="wrapper">
+
+  <!-- MỤC LỤC -->
+  <div class="toc">
+    <h3>📌 Nội dung điều khoản</h3>
+    <ol>
+      <li>Chấp thuận điều khoản</li>
+      <li>Đối tượng sử dụng</li>
+      <li>Quy định đặt cọc (20%)</li>
+      <li>Chính sách hoàn cọc</li>
+      <li>Quy định chung khi sử dụng dịch vụ</li>
+      <li>Bảo mật thông tin</li>
+      <li>Quyền và trách nhiệm người dùng</li>
+      <li>Quyền và trách nhiệm của trung tâm</li>
+      <li>Xử lý vi phạm</li>
+      <li>Thay đổi điều khoản</li>
+      <li>Liên hệ & giải quyết tranh chấp</li>
+    </ol>
+  </div>
+
+  <!-- ĐIỀU 1 -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">🤝</div>
+      <div class="card-title">Điều 1 – Chấp thuận điều khoản</div>
+      <div class="card-number">01</div>
+    </div>
+    <div class="card-body">
+      <p>Bằng việc đăng ký, đặt lịch, đặt cọc hoặc sử dụng bất kỳ dịch vụ nào của <strong>Hệ Thống Quản Lý Mẹ & Bé</strong>, bạn xác nhận đã đọc, hiểu và đồng ý ràng buộc bởi toàn bộ các điều khoản được nêu trong tài liệu này.</p>
+      <p>Nếu bạn không đồng ý với bất kỳ điều khoản nào, vui lòng không sử dụng dịch vụ của chúng tôi.</p>
+    </div>
+  </div>
+
+  <!-- ĐIỀU 2 -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">👤</div>
+      <div class="card-title">Điều 2 – Đối tượng sử dụng</div>
+      <div class="card-number">02</div>
+    </div>
+    <div class="card-body">
+      <ul class="terms-list">
+        <li>Dịch vụ dành cho phụ huynh, bà mẹ mang thai và trẻ em trong độ tuổi phù hợp với từng chương trình của trung tâm.</li>
+        <li>Người đăng ký phải đủ 18 tuổi trở lên hoặc được sự đồng ý của người giám hộ hợp pháp.</li>
+        <li>Tài khoản chỉ được sử dụng bởi cá nhân đã đăng ký; không được chuyển nhượng hoặc cho mượn.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ĐIỀU 3 – CỌC -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">💰</div>
+      <div class="card-title">Điều 3 – Quy định đặt cọc</div>
+      <div class="card-number">03</div>
+    </div>
+    <div class="card-body">
+
+      <div class="deposit-hero">
+        <div class="big-number">20%</div>
+        <div class="label">Mức đặt cọc bắt buộc khi đăng ký dịch vụ</div>
+        <div class="sub">Tính trên tổng giá trị gói dịch vụ đã chọn</div>
+      </div>
+
+      <ul class="terms-list">
+        <li>Khi đặt lịch sử dụng dịch vụ, khách hàng cần đặt cọc <strong>20% tổng giá trị</strong> để giữ chỗ.</li>
+        <li>Khoản cọc sẽ được <strong>khấu trừ trực tiếp</strong> vào hóa đơn thanh toán cuối khi hoàn thành dịch vụ.</li>
+        <li>Hình thức đặt cọc: chuyển khoản ngân hàng, tiền mặt, hoặc ví điện tử theo thông tin được cung cấp bởi trung tâm.</li>
+        <li>Biên lai xác nhận cọc sẽ được gửi qua Zalo / SMS / email sau khi giao dịch được xác nhận.</li>
+        <li>Khoản cọc chỉ có giá trị cho lịch đặt cụ thể đã thỏa thuận; không áp dụng chuyển sang dịch vụ khác khi chưa được duyệt.</li>
+      </ul>
+
+      <div class="notice notice-info">
+        <div class="notice-icon">ℹ️</div>
+        <div><strong>Lưu ý</strong>Vui lòng lưu giữ biên lai cọc để đối chiếu khi cần. Trung tâm không chịu trách nhiệm nếu khách hàng không xuất trình được bằng chứng thanh toán.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ĐIỀU 4 – HOÀN CỌC -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">🔄</div>
+      <div class="card-title">Điều 4 – Chính sách hoàn cọc</div>
+      <div class="card-number">04</div>
+    </div>
+    <div class="card-body">
+
+      <p>Mức hoàn cọc phụ thuộc vào thời gian khách hàng <strong>thông báo hủy/dời lịch</strong> trước giờ hẹn:</p>
+
+      <div class="refund-grid" style="margin-bottom: 20px;">
+        <div class="refund-card rc-100">
+          <div class="time">⏰ Báo trước ≥ 48 tiếng</div>
+          <div class="percent">100%</div>
+          <div class="desc">Hoàn toàn bộ tiền cọc</div>
+        </div>
+        <div class="refund-card rc-50">
+          <div class="time">⏰ Báo trước ≥ 24 tiếng</div>
+          <div class="percent">50%</div>
+          <div class="desc">Hoàn một nửa tiền cọc</div>
+        </div>
+        <div class="refund-card rc-25">
+          <div class="time">⏰ Báo trước ≥ 12 tiếng</div>
+          <div class="percent">25%</div>
+          <div class="desc">Hoàn một phần tư cọc</div>
+        </div>
+        <div class="refund-card rc-0">
+          <div class="time">⛔ Dưới 12 tiếng / Vắng</div>
+          <div class="percent">0%</div>
+          <div class="desc">Không hoàn cọc</div>
+        </div>
+      </div>
+
+      <ul class="terms-list">
+        <li>Thời gian tính từ lúc trung tâm <strong>nhận được thông báo hủy</strong> (qua Zalo / điện thoại / ứng dụng), không phải lúc khách hàng gửi.</li>
+        <li>Thông báo hủy phải được gửi đến <strong>đúng kênh liên lạc chính thức</strong> của trung tâm; trường hợp gửi không đúng kênh sẽ không được công nhận.</li>
+        <li>Khách hàng <strong>không đến đúng giờ mà không báo trước</strong> được tính là hủy dưới 12 tiếng — mất toàn bộ cọc.</li>
+        <li>Tiền hoàn cọc (nếu có) sẽ được chuyển lại trong vòng <strong>3–5 ngày làm việc</strong> kể từ khi xác nhận hủy thành công.</li>
+        <li>Trường hợp <strong>bất khả kháng</strong> (tai nạn, ốm đau có giấy tờ y tế, thiên tai…), trung tâm sẽ xem xét hoàn cọc theo từng trường hợp cụ thể.</li>
+      </ul>
+
+      <div class="notice notice-danger">
+        <div class="notice-icon">⚠️</div>
+        <div><strong>Quan trọng</strong>Mọi yêu cầu hoàn cọc phải được gửi kèm mã đặt lịch và biên lai cọc. Trung tâm có quyền từ chối hoàn cọc nếu thông tin không hợp lệ.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ĐIỀU 5 -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">📌</div>
+      <div class="card-title">Điều 5 – Quy định chung khi sử dụng dịch vụ</div>
+      <div class="card-number">05</div>
+    </div>
+    <div class="card-body">
+      <ul class="terms-list">
+        <li>Đến đúng giờ hẹn. Đến trễ quá <strong> 1 tiếng</strong> mà không báo trước, trung tâm có quyền hủy lịch và xem xét chính sách cọc theo Điều 4.</li>
+        <li>Mang đủ giấy tờ, hồ sơ sức khỏe theo yêu cầu của từng dịch vụ cụ thể.</li>
+        <li>Tuân thủ nội quy của trung tâm: không hút thuốc, không gây ồn ào, giữ gìn vệ sinh chung.</li>
+        <li>Trẻ em phải có người lớn giám hộ đi kèm trong suốt thời gian sử dụng dịch vụ.</li>
+        <li>Không tự ý thay đổi lịch hẹn mà chưa liên hệ xác nhận với nhân viên trung tâm.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ĐIỀU 6 -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">🔐</div>
+      <div class="card-title">Điều 6 – Bảo mật thông tin</div>
+      <div class="card-number">06</div>
+    </div>
+    <div class="card-body">
+      <p>Trung tâm cam kết bảo vệ thông tin cá nhân của khách hàng theo quy định của pháp luật Việt Nam về bảo vệ dữ liệu cá nhân.</p>
+      <ul class="terms-list">
+        <li>Thông tin cá nhân (họ tên, số điện thoại, địa chỉ, thông tin sức khỏe…) chỉ được dùng cho mục đích cung cấp dịch vụ.</li>
+        <li>Không chia sẻ thông tin cho bên thứ ba khi chưa có sự đồng ý bằng văn bản của khách hàng, ngoại trừ trường hợp pháp luật yêu cầu.</li>
+        <li>Khách hàng có quyền yêu cầu xem, chỉnh sửa hoặc xóa thông tin cá nhân của mình.</li>
+        <li>Khách hàng có trách nhiệm bảo mật thông tin tài khoản; không chia sẻ mật khẩu cho người khác.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ĐIỀU 7 -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">👩‍👧</div>
+      <div class="card-title">Điều 7 – Quyền và trách nhiệm của khách hàng</div>
+      <div class="card-number">07</div>
+    </div>
+    <div class="card-body">
+      <ul class="terms-list">
+        <li>Được cung cấp đầy đủ thông tin về dịch vụ trước khi đăng ký.</li>
+        <li>Được đảm bảo chất lượng dịch vụ theo cam kết của trung tâm.</li>
+        <li>Được phản ánh, khiếu nại nếu dịch vụ không đạt chất lượng như đã thỏa thuận.</li>
+        <li>Có trách nhiệm cung cấp thông tin chính xác, trung thực khi đăng ký.</li>
+        <li>Chịu trách nhiệm về mọi tổn thất phát sinh do cung cấp thông tin sai lệch.</li>
+        <li>Không thực hiện hành vi gây rối, xúc phạm nhân viên hoặc khách hàng khác của trung tâm.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ĐIỀU 8 -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">🏥</div>
+      <div class="card-title">Điều 8 – Quyền và trách nhiệm của trung tâm</div>
+      <div class="card-number">08</div>
+    </div>
+    <div class="card-body">
+      <ul class="terms-list">
+        <li>Cung cấp dịch vụ đúng như cam kết về thời gian, chất lượng và nội dung.</li>
+        <li>Thông báo kịp thời nếu có thay đổi lịch hẹn do nguyên nhân từ phía trung tâm; hoàn 100% cọc trong trường hợp này.</li>
+        <li>Đảm bảo môi trường sạch sẽ, an toàn cho mẹ và bé.</li>
+        <li>Từ chối phục vụ hoặc chấm dứt hợp đồng với khách hàng có hành vi vi phạm quy định.</li>
+        <li>Không chịu trách nhiệm với các thiệt hại phát sinh do khách hàng cung cấp thông tin sức khỏe không đầy đủ hoặc sai lệch.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ĐIỀU 9 -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">⚖️</div>
+      <div class="card-title">Điều 9 – Xử lý vi phạm</div>
+      <div class="card-number">09</div>
+    </div>
+    <div class="card-body">
+      <ul class="terms-list">
+        <li>Khách hàng vi phạm nghiêm trọng các điều khoản có thể bị đình chỉ tài khoản mà không hoàn tiền.</li>
+        <li>Hành vi gian lận, giả mạo thông tin sẽ bị chấm dứt dịch vụ ngay lập tức và có thể bị xử lý theo pháp luật.</li>
+        <li>Tranh chấp về cọc và hoàn cọc được giải quyết theo thứ tự: thương lượng → hòa giải → cơ quan pháp luật có thẩm quyền.</li>
+      </ul>
+      <div class="notice notice-warn">
+        <div class="notice-icon">📢</div>
+        <div><strong>Lưu ý</strong>Mọi vi phạm nội quy đều được ghi nhận. Trung tâm có quyền từ chối phục vụ những trường hợp có tiền sử vi phạm nghiêm trọng.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ĐIỀU 10 -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">🔄</div>
+      <div class="card-title">Điều 10 – Thay đổi điều khoản</div>
+      <div class="card-number">10</div>
+    </div>
+    <div class="card-body">
+      <p>Trung tâm có quyền cập nhật, bổ sung hoặc thay đổi các điều khoản này bất cứ lúc nào nhằm nâng cao chất lượng dịch vụ hoặc tuân thủ quy định pháp luật mới.</p>
+      <ul class="terms-list">
+        <li>Thông báo thay đổi sẽ được gửi qua Zalo / SMS / email đến khách hàng đang sử dụng dịch vụ <strong>ít nhất 7 ngày</strong> trước khi có hiệu lực.</li>
+        <li>Việc tiếp tục sử dụng dịch vụ sau ngày hiệu lực được xem là đồng ý với điều khoản mới.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ĐIỀU 11 -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">📞</div>
+      <div class="card-title">Điều 11 – Liên hệ & giải quyết tranh chấp</div>
+      <div class="card-number">11</div>
+    </div>
+    <div class="card-body">
+      <p>Mọi thắc mắc, khiếu nại vui lòng liên hệ trung tâm qua các kênh chính thức dưới đây:</p>
+      <ul class="terms-list">
+        <li>📱 <strong>Zalo / Điện thoại:</strong> 0973714055</li>
+        <li>📧 <strong>Email:</strong> nambui37x11@gmail.com</li>
+        <li>🏠 <strong>Địa chỉ:</strong> Địa chỉ văn phòng / chi nhánh trung tâm</li>
+      </ul>
+      <div class="notice notice-info">
+        <div class="notice-icon">⚖️</div>
+        <div><strong>Giải quyết tranh chấp</strong>Các tranh chấp phát sinh được ưu tiên giải quyết qua thương lượng. Trường hợp không đạt được thỏa thuận, các bên có quyền đưa ra Tòa án nhân dân có thẩm quyền tại Việt Nam để giải quyết.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer-card">
+    <h3>© 2026 Hệ Thống Quản Lý Mẹ & Bé</h3>
+    <p>Tài liệu này có giá trị pháp lý và áp dụng cho tất cả khách hàng sử dụng dịch vụ của trung tâm.</p>
+    <p>Bằng việc sử dụng dịch vụ, bạn xác nhận đã đọc và đồng ý với toàn bộ nội dung trên.</p>
+    <div class="date">Phiên bản: 1.0 — Ngày hiệu lực: 19/06/2026</div>
+  </div>
+
+</div>
+</body>
+</html>
