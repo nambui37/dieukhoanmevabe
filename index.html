@@ -364,55 +364,57 @@
       </div>
     </div>
   </div>
+<!-- ĐIỀU 4 – HOÀN CỌC & TỰ ĐỘNG HỦY LỊCH QUÁ HẠN -->
+<div class="card">
+  <div class="card-header">
+    <div class="card-icon">🔄</div>
+    <div class="card-title">Điều 4 – Chính sách hoàn cọc & Tự động hủy lịch</div>
+    <div class="card-number">04</div>
+  </div>
+  <div class="card-body">
 
-  <!-- ĐIỀU 4 – HOÀN CỌC -->
-  <div class="card">
-    <div class="card-header">
-      <div class="card-icon">🔄</div>
-      <div class="card-title">Điều 4 – Chính sách hoàn cọc</div>
-      <div class="card-number">04</div>
+    <p>Mức hoàn cọc phụ thuộc vào thời gian khách hàng <strong>thông báo hủy/dời lịch</strong> trước giờ hẹn:</p>
+
+    <!-- Bảng phân bậc 3 mức hoàn cọc mới -->
+    <div class="refund-grid" style="margin-bottom: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px;">
+      <div class="refund-card rc-100" style="border-left: 4px solid #10b981; padding: 10px; background: #f0fdf4; border-radius: 8px;">
+        <div class="time" style="font-weight: bold; font-size: 0.9em;">⏰ Báo trước ≥ 7 ngày</div>
+        <div class="percent" style="font-size: 1.8em; font-weight: 900; color: #10b981; margin: 5px 0;">100%</div>
+        <div class="desc" style="font-size: 0.85em; color: #6b7280;">Hoàn toàn bộ tiền cọc</div>
+      </div>
+      <div class="refund-card rc-50" style="border-left: 4px solid #f59e0b; padding: 10px; background: #fffbeb; border-radius: 8px;">
+        <div class="time" style="font-weight: bold; font-size: 0.9em;">⏰ Báo trước ≥ 2 ngày</div>
+        <div class="percent" style="font-size: 1.8em; font-weight: 900; color: #f59e0b; margin: 5px 0;">50%</div>
+        <div class="desc" style="font-size: 0.85em; color: #6b7280;">Hoàn một nửa tiền cọc</div>
+      </div>
+      <div class="refund-card rc-0" style="border-left: 4px solid #ef4444; padding: 10px; background: #fef2f2; border-radius: 8px;">
+        <div class="time" style="font-weight: bold; font-size: 0.9em;">⛔ Dưới 48 tiếng / Vắng</div>
+        <div class="percent" style="font-size: 1.8em; font-weight: 900; color: #ef4444; margin: 5px 0;">0%</div>
+        <div class="desc" style="font-size: 0.85em; color: #6b7280;">Không hoàn cọc</div>
+      </div>
     </div>
-    <div class="card-body">
 
-      <p>Mức hoàn cọc phụ thuộc vào thời gian khách hàng <strong>thông báo hủy/dời lịch</strong> trước giờ hẹn:</p>
+    <ul class="terms-list">
+      <li>Thời gian tính từ lúc trung tâm <strong>nhận được thông báo hủy</strong> (qua Zalo / điện thoại / ứng dụng), không phải lúc khách hàng gửi.</li>
+      <li>Thông báo hủy phải được gửi đến <strong>đúng kênh liên lạc chính thức</strong> của trung tâm; trường hợp gửi không đúng kênh sẽ không được công nhận.</li>
+      <li>Khách hàng <strong>không đến đúng giờ mà không báo trước</strong> được tính là hủy dưới 48 tiếng — mất toàn bộ cọc.</li>
+      <li>Tiền hoàn cọc (nếu có) sẽ được chuyển lại trong vòng <strong>3–5 ngày làm việc</strong> kể từ khi xác nhận hủy thành công.</li>
+      
+      <!-- Quy định tự động hủy lịch quá hạn 7 ngày -->
+      <li style="color: #be185d; font-weight: bold;">
+        Lịch hẹn quá ngày bắt đầu dự kiến 7 ngày (1 tuần) mà khách hàng không đến thực hiện dịch vụ hoặc không liên hệ dời lịch, hệ thống sẽ tự động hủy lịch, không hoàn lại tiền cọc và tự động giải phóng ca làm của chuyên viên.
+      </li>
+      
+      <li>Trường hợp <strong>bất khả kháng</strong> (tai nạn, ốm đau có giấy tờ y tế, thiên tai…), trung tâm sẽ xem xét hoàn cọc theo từng trường hợp cụ thể.</li>
+    </ul>
 
-      <div class="refund-grid" style="margin-bottom: 20px;">
-        <div class="refund-card rc-100">
-          <div class="time">⏰ Báo trước ≥ 48 tiếng</div>
-          <div class="percent">100%</div>
-          <div class="desc">Hoàn toàn bộ tiền cọc</div>
-        </div>
-        <div class="refund-card rc-50">
-          <div class="time">⏰ Báo trước ≥ 24 tiếng</div>
-          <div class="percent">50%</div>
-          <div class="desc">Hoàn một nửa tiền cọc</div>
-        </div>
-        <div class="refund-card rc-25">
-          <div class="time">⏰ Báo trước ≥ 12 tiếng</div>
-          <div class="percent">25%</div>
-          <div class="desc">Hoàn một phần tư cọc</div>
-        </div>
-        <div class="refund-card rc-0">
-          <div class="time">⛔ Dưới 12 tiếng / Vắng</div>
-          <div class="percent">0%</div>
-          <div class="desc">Không hoàn cọc</div>
-        </div>
-      </div>
-
-      <ul class="terms-list">
-        <li>Thời gian tính từ lúc trung tâm <strong>nhận được thông báo hủy</strong> (qua Zalo / điện thoại / ứng dụng), không phải lúc khách hàng gửi.</li>
-        <li>Thông báo hủy phải được gửi đến <strong>đúng kênh liên lạc chính thức</strong> của trung tâm; trường hợp gửi không đúng kênh sẽ không được công nhận.</li>
-        <li>Khách hàng <strong>không đến đúng giờ mà không báo trước</strong> được tính là hủy dưới 12 tiếng — mất toàn bộ cọc.</li>
-        <li>Tiền hoàn cọc (nếu có) sẽ được chuyển lại trong vòng <strong>3–5 ngày làm việc</strong> kể từ khi xác nhận hủy thành công.</li>
-        <li>Trường hợp <strong>bất khả kháng</strong> (tai nạn, ốm đau có giấy tờ y tế, thiên tai…), trung tâm sẽ xem xét hoàn cọc theo từng trường hợp cụ thể.</li>
-      </ul>
-
-      <div class="notice notice-danger">
-        <div class="notice-icon">⚠️</div>
-        <div><strong>Quan trọng</strong>Mọi yêu cầu hoàn cọc phải được gửi kèm mã đặt lịch và biên lai cọc. Trung tâm có quyền từ chối hoàn cọc nếu thông tin không hợp lệ.</div>
-      </div>
+    <div class="notice notice-danger" style="margin-top: 15px; padding: 12px; background: #fff1f2; border: 1px solid #fecdd3; border-radius: 8px; display: flex; gap: 10px;">
+      <div class="notice-icon">⚠️</div>
+      <div><strong>Quan trọng: </strong>Mọi yêu cầu hoàn cọc phải được gửi kèm mã đặt lịch và biên lai cọc. Trung tâm có quyền từ chối hoàn cọc nếu thông tin không hợp lệ.</div>
     </div>
   </div>
+</div>
+
 
   <!-- ĐIỀU 5 -->
   <div class="card">
